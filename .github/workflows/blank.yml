@@ -10,7 +10,7 @@ on:
 
 env:
   PYTHON_VERSION: 3.8
-  DockerImageName: kube2py
+
 
 
 jobs:
