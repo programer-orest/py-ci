@@ -10,7 +10,7 @@ on:
 
 env:
   PYTHON_VERSION: 3.8
-  DockerImageName: kube2py
+  DOCKER_IMAGE_NAME: kube2py
 
 
 jobs:
@@ -82,6 +82,6 @@ jobs:
         with:
           push: true
           context: ./src
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DockerImageName }}:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}
 
 
