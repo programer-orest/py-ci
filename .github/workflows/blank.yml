@@ -59,6 +59,14 @@ jobs:
 
 
 
+      - name: Upload Python Artifacts
+        if: github.ref_name == 'main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: helm-artifact
+          path: ${{ github.workspace }}/helm-charts
+
+
   build-image:
     name: Build and Push Image
     needs: ['python-ci']
@@ -85,5 +93,18 @@ jobs:
           push: true
           context: ./src
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DockerImageName }}:${{ github.sha }}
+
+
+  helm-ci:
+    runs-on: ubuntu-latest
+    needs: ['python-ci']
+    if: github.ref_name == 'main'
+
+    steps:
+
+    - uses: actions/download-artifact@v4
+      with:
+        name: helm-artifacts
+        path: .
 
 
