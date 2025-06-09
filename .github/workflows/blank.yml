@@ -59,7 +59,7 @@ jobs:
 
 
 
-      - name: Upload Python Artifacts
+      - name: Upload Helm Artifacts
         if: github.ref_name == 'main'
         uses: actions/upload-artifact@v4
         with:
@@ -125,3 +125,6 @@ jobs:
       with:
         name: helm-package
         path: ./*.tgz
+
+    - name: Show helm cache
+      run: ls ~/.cache/helm
