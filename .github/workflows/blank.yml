@@ -135,7 +135,6 @@ jobs:
     with:
       environment: development
       version: ${{ github.sha }}
-      namespace: mateapp
 
   deploy_helm_staging:
     name: Deploy Helm
@@ -147,4 +146,3 @@ jobs:
       version: ${{ github.sha }}
       helm-values-path: ./kube2py/values/staging.yaml
       helm-release-name: kube2py-staging
-      namespace: kube2py-staging
