@@ -2,4 +2,5 @@ configs:
   MYSQL_ROOT_PASSWORD: placeholder
   MYSQL_USER: placeholder
   MYSQL_PASSWORD: placeholder
-  
+
+namespace: mysql-staging
