@@ -15,7 +15,7 @@ on:
         type: string
         default: './kube2py/values.yaml'
       helm-release-name:
-        default: kube2py
+        default: kube2py-staging
         type: string
 
 jobs:
@@ -63,5 +63,5 @@ jobs:
           --set kube2py.secrets.DB_CONNECTION="${{ secrets.DB_CONNECTION }}" \
           --set kube2py.image.version="${{ github.sha }}"
 
-    
+
 
