@@ -6,7 +6,7 @@ global:
 
 mysql:
   configs:
-    MYSQL_ROOT_PASSWORD: placeholder
+    MYSQL_ROOT_PASSWORD: "1234"
 
 kube2py:
   image:
@@ -20,10 +20,10 @@ kube2py:
     APP_ENV: "testing-helm"
 
   secrets:
-    password: placeholder
-    login: placeholder
+    password: MyStrongPassword
+    login: SuperUser
     external_endpoint: http://httpbin-api.mateapp.svc.cluster.local
-    DB_CONNECTION: placeholder
+    DB_CONNECTION: mysql+mysqlconnector://app_user:1234@mysql-0.mysql.mysql.svc.cluster.local/app_db
 
   resources:
     requests:
@@ -41,4 +41,3 @@ kube2py:
       averageUtilization: 70
     memory:
       averageUtilization: 70
-      
