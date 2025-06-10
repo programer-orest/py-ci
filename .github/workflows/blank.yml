@@ -129,7 +129,7 @@ jobs:
 
   deploy_helm_dev:
     name: Deploy Helm
-    uses: ./.github/workflows/deployment-workflow.yml
+    uses: ./.github/workflows/deployment-workflow.yaml
     needs: [helm-ci, build-image]
     secrets: inherit
     with:
