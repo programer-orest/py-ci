@@ -135,6 +135,7 @@ jobs:
     with:
       environment: development
       version: ${{ github.sha }}
+      namespace: mateapp
 
   deploy_helm_staging:
     name: Deploy Helm
