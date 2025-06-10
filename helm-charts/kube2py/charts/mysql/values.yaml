@@ -3,4 +3,4 @@ configs:
   MYSQL_USER: placeholder
   MYSQL_PASSWORD: placeholder
 
-namespace: mysql-staging
+namespace: mysql

@@ -63,17 +63,5 @@ jobs:
           --set kube2py.secrets.DB_CONNECTION="${{ secrets.DB_CONNECTION }}" \
           --set kube2py.image.version="${{ github.sha }}"
 
-    - name: Describe pods
-      run: |
-        for pod in $(kubectl get pods -n mateapp --field-selector=status.phase!=Running -o jsonpath='{.items[*].metadata.name}'); do
-          echo "-----DESCRIBING POD: $pod ------"
-          kubectl describe pod $pod -n mateapp
-        done
-
-    - name: Show pod logs
-      run: |
-        for pod in $(kubectl get pods -n mateapp --no-headers | awk '/CrashLoopBackOff|Error/ {print $1}'); do
-          echo "------ LOGS FROM: $pod -----"
-          kubectl logs $pod -n mateapp --tail=50
-        done
+    
 
