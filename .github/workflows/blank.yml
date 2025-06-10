@@ -186,3 +186,4 @@ jobs:
           kubectl logs $pod -n mateapp --tail=50
         done
 
+
