@@ -6,7 +6,7 @@ global:
 
 mysql:
   configs:
-    MYSQL_ROOT_PASSWORD: "1234"
+    MYSQL_ROOT_PASSWORD: placeholder
 
 kube2py:
   image:
