@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Chart.Name }}-service
-  namespace: {{ .Values.commmon.namespace }}
+  namespace: {{ .Values.commmon.namespace | default .Release.Name }}
 spec:
   selector:
     app: {{ .Chart.Name }}

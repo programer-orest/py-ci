@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: {{ .Release.Name }}-{{ .Chart.Name }}
- namespace: {{ .Values.commmon.namespace }}
+ namespace: {{ .Values.commmon.namespace | default .Release.Name }}
 spec:
  replicas: 4
  strategy:
