@@ -1,10 +1,8 @@
 
 global:
   ENVIRONMENT: "Staging"
-  namespace: kube2py-staging
 
-mysql:
-  namespace: mysql-staging
+
 
 kube2py:
   configs:
@@ -26,4 +24,3 @@ kube2py:
     enabled: true
     minReplicas: 3
     maxReplicas: 5
-    
