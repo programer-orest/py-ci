@@ -46,7 +46,7 @@ spec:
           mountPath: /docker-entrypoint-initdb.d
         resources:
           requests:
-            cpu: 500m
+            cpu: 250m
             memory: 1Gi
         livenessProbe:
           exec:
