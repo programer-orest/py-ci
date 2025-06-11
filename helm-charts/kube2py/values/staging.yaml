@@ -26,3 +26,4 @@ kube2py:
     enabled: true
     minReplicas: 3
     maxReplicas: 5
+
