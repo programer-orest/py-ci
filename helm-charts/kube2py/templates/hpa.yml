@@ -3,7 +3,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Chart.Name }}
-  namespace: {{ .Values.commmon.namespace | default .Release.Name }}
+  namespace: {{ .Values.commmon.namespace }}
 spec:
   {{- with .Values.kube2py.hpa }}
   scaleTargetRef:
