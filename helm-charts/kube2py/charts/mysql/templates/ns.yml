@@ -1,4 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  namespace: {{ .Values.namespace | default "mysql-staging"}}
+  name: {{ .Values.namespace | default "mysql-staging"}}
