@@ -12,7 +12,7 @@ kube2py:
   image:
     name: kube2py
     repository: orestprogrammer/kube2py
-    version: 9ce769ef54d096a4c6c411e683be5b77fefb3c57
+    version: 2ce559951ee4d74fac5179b010b70317028ea9a8
 
   configs:
     EXTERNAL_ENDPOINT: "http://httpbin-api.mateapp.svc.cluster.local"
