@@ -8,6 +8,10 @@ on:
   pull_request:
     branches: ["main"]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   PYTHON_VERSION: 3.8
   DOCKER_IMAGE_NAME: kube2py
@@ -15,8 +19,14 @@ env:
 
 jobs:
   python-ci:
+    strategy:
+      matrix:
+       PythonVersion: [3.8, 3.9]
+       OsType: [ubuntu-latest, windows-latest]
+
+
     name: Python CI
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.OsType }}
 
     defaults:
       run:
@@ -26,9 +36,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
-        name: Setup Python ${{ env.PYTHON_VERSION}}
+        name: Setup Python ${{ matrix.PythonVersion }}
         with:
-          python-version: '${{ env.PYTHON_VERSION}}'
+          python-version: '${{ matrix.PythonVersion }}'
 
       - name: Install Dependencies
         run: |
@@ -149,4 +159,3 @@ jobs:
       helm-release-name: kube2py-staging
 
 
-      
